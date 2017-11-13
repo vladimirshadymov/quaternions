@@ -65,7 +65,6 @@ class Quaternion{
    * @param qtr Quaternion to be printed out.
    * @return output of the quaternion
    */
-template <typename DataType>
 std::ostream &operator<<(std::ostream &stream, const Quaternion& qtr);
 
 #endif //QUATERNIONS_QTR_ALGEBRA_HPP
