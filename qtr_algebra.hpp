@@ -57,6 +57,10 @@ class Quaternion{
    */
   double getx3()const ;
 
+  /*!
+   * Overloaded operator "=" for quaternoin assignment
+   */
+  Quaternion &operator =(const Quaternion &qtr);
 };
 
 /*!

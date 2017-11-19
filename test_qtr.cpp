@@ -13,4 +13,6 @@ int main(){
   std::cout << qtr1;
   std::cout << qtr2;
   std::cout << qtr5;
+  qtr5 = qtr2;
+  std::cout << qtr5;
 }

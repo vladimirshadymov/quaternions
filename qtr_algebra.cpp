@@ -38,6 +38,14 @@ double Quaternion::getx3() const {
   return x3_;
 }
 
+Quaternion &Quaternion::operator=(const Quaternion &qtr){
+  x0_ = qtr.getx0();
+  x1_ = qtr.getx1();
+  x2_ = qtr.getx2();
+  x3_ = qtr.getx3();
+  return *this;
+}
+
 
 std::ostream &operator<<(std::ostream &stream, const Quaternion& qtr){
   return stream << "quaternion("<<qtr.getx0()<<", "
