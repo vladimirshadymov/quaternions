@@ -28,6 +28,7 @@ class Quaternion{
    * \param[out] Quaternion(0, 0, 0, 0)
    */
   Quaternion();
+
   /*!
    * Initialize quaternion with defined coordinates
    * \param[in] x0, x1, x2, x3 - coordinates;
@@ -58,9 +59,43 @@ class Quaternion{
   double getx3()const ;
 
   /*!
-   * Overloaded operator "=" for quaternoin assignment
+   * Overloading of the operator "=" for quaternoin assignment
    */
   Quaternion &operator =(const Quaternion &qtr);
+
+
+  /*!
+   * Overloading of the operator "+" for quaternoin adding
+   */
+  Quaternion operator +(const Quaternion &qtr);
+
+  /*!
+   * Overloading of the operator "-" for quaternoin subtraction
+   */
+  Quaternion operator -(const Quaternion &qtr);
+
+  /*!
+   * Overloading of the operator "+=" for quaternoin adding
+   */
+  Quaternion &operator +=(const Quaternion &qtr);
+
+  /*!
+   * Overloading of the operator "-=" for quaternoin subtraction
+   */
+  Quaternion &operator -=(const Quaternion &qtr);
+
+  /*!
+   * @param Overloading of the operator "==" for quaternoin comparison
+   * @return
+   */
+  bool operator ==(const Quaternion &qtr);
+
+  /*!
+   * @param Overloading of the operator "!=" for quaternoin comparison
+   * @return
+   */
+  bool operator !=(const Quaternion &qtr);
+
 };
 
 /*!
@@ -70,5 +105,6 @@ class Quaternion{
  * @return output of the quaternion
  */
 std::ostream &operator<<(std::ostream &stream, const Quaternion& qtr);
+
 
 #endif //QUATERNIONS_QTR_ALGEBRA_HPP
