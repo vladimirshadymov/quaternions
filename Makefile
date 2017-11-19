@@ -111,17 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named quaternions
+# Target rules for targets named test_qtr
 
 # Build rule for target.
-quaternions: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 quaternions
-.PHONY : quaternions
+test_qtr: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test_qtr
+.PHONY : test_qtr
 
 # fast build rule for target.
-quaternions/fast:
-	$(MAKE) -f CMakeFiles/quaternions.dir/build.make CMakeFiles/quaternions.dir/build
-.PHONY : quaternions/fast
+test_qtr/fast:
+	$(MAKE) -f CMakeFiles/test_qtr.dir/build.make CMakeFiles/test_qtr.dir/build
+.PHONY : test_qtr/fast
+
+#=============================================================================
+# Target rules for targets named qtr_lib
+
+# Build rule for target.
+qtr_lib: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 qtr_lib
+.PHONY : qtr_lib
+
+# fast build rule for target.
+qtr_lib/fast:
+	$(MAKE) -f CMakeFiles/qtr_lib.dir/build.make CMakeFiles/qtr_lib.dir/build
+.PHONY : qtr_lib/fast
 
 qtr_algebra.o: qtr_algebra.cpp.o
 
@@ -129,7 +142,7 @@ qtr_algebra.o: qtr_algebra.cpp.o
 
 # target to build an object file
 qtr_algebra.cpp.o:
-	$(MAKE) -f CMakeFiles/quaternions.dir/build.make CMakeFiles/quaternions.dir/qtr_algebra.cpp.o
+	$(MAKE) -f CMakeFiles/qtr_lib.dir/build.make CMakeFiles/qtr_lib.dir/qtr_algebra.cpp.o
 .PHONY : qtr_algebra.cpp.o
 
 qtr_algebra.i: qtr_algebra.cpp.i
@@ -138,7 +151,7 @@ qtr_algebra.i: qtr_algebra.cpp.i
 
 # target to preprocess a source file
 qtr_algebra.cpp.i:
-	$(MAKE) -f CMakeFiles/quaternions.dir/build.make CMakeFiles/quaternions.dir/qtr_algebra.cpp.i
+	$(MAKE) -f CMakeFiles/qtr_lib.dir/build.make CMakeFiles/qtr_lib.dir/qtr_algebra.cpp.i
 .PHONY : qtr_algebra.cpp.i
 
 qtr_algebra.s: qtr_algebra.cpp.s
@@ -147,8 +160,35 @@ qtr_algebra.s: qtr_algebra.cpp.s
 
 # target to generate assembly for a file
 qtr_algebra.cpp.s:
-	$(MAKE) -f CMakeFiles/quaternions.dir/build.make CMakeFiles/quaternions.dir/qtr_algebra.cpp.s
+	$(MAKE) -f CMakeFiles/qtr_lib.dir/build.make CMakeFiles/qtr_lib.dir/qtr_algebra.cpp.s
 .PHONY : qtr_algebra.cpp.s
+
+test.o: test.cpp.o
+
+.PHONY : test.o
+
+# target to build an object file
+test.cpp.o:
+	$(MAKE) -f CMakeFiles/test_qtr.dir/build.make CMakeFiles/test_qtr.dir/test.cpp.o
+.PHONY : test.cpp.o
+
+test.i: test.cpp.i
+
+.PHONY : test.i
+
+# target to preprocess a source file
+test.cpp.i:
+	$(MAKE) -f CMakeFiles/test_qtr.dir/build.make CMakeFiles/test_qtr.dir/test.cpp.i
+.PHONY : test.cpp.i
+
+test.s: test.cpp.s
+
+.PHONY : test.s
+
+# target to generate assembly for a file
+test.cpp.s:
+	$(MAKE) -f CMakeFiles/test_qtr.dir/build.make CMakeFiles/test_qtr.dir/test.cpp.s
+.PHONY : test.cpp.s
 
 # Help Target
 help:
@@ -158,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... quaternions"
+	@echo "... test_qtr"
+	@echo "... qtr_lib"
 	@echo "... qtr_algebra.o"
 	@echo "... qtr_algebra.i"
 	@echo "... qtr_algebra.s"
+	@echo "... test.o"
+	@echo "... test.i"
+	@echo "... test.s"
 .PHONY : help
 
 

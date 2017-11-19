@@ -60,12 +60,11 @@ class Quaternion{
 };
 
 /*!
-   *
-   * @param stream Stream of output.
-   * @param qtr Quaternion to be printed out.
-   * @return output of the quaternion
-   */
-template <typename DataType>
+ *
+ * @param stream Stream of output.
+ * @param qtr Quaternion to be printed out.
+ * @return output of the quaternion
+ */
 std::ostream &operator<<(std::ostream &stream, const Quaternion& qtr);
 
 #endif //QUATERNIONS_QTR_ALGEBRA_HPP
