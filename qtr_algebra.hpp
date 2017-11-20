@@ -96,6 +96,34 @@ class Quaternion{
    */
   bool operator !=(const Quaternion &qtr);
 
+  /*!
+   *
+   * @param k number of double type
+   * @return Quaternion multiplied by the number k (qtr*k; only that order in this function)
+   */
+  Quaternion operator *(double k);
+
+  /*!
+   *
+   * @param k number of double type
+   * @return Quaternion divided by the number k (qtr/k)
+   */
+  Quaternion operator /(double k);
+
+  /*!
+   *
+   * @param k number of double type
+   * @return Quaternion multiplied by the number k
+   */
+  Quaternion &operator *=(double k);
+
+  /*!
+   *
+   * @param k number of double type
+   * @return Quaternion divided by the number k
+   */
+  Quaternion &operator /=(double k);
+
 };
 
 /*!
@@ -105,6 +133,16 @@ class Quaternion{
  * @return output of the quaternion
  */
 std::ostream &operator<<(std::ostream &stream, const Quaternion& qtr);
+
+
+/*!
+ *
+ * @param k number of double type
+ * @param qtr : Quaternion multiplied by the number k (k*qtr; only that order in this function)
+ * @return
+ */
+Quaternion operator *(const double k, const Quaternion &qtr);
+
 
 
 #endif //QUATERNIONS_QTR_ALGEBRA_HPP

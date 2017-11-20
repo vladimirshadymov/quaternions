@@ -16,6 +16,10 @@ int main(){
 
   qtr1 = qtr2+qtr5;
 
+
+  qtr2 = qtr1*4;
+  qtr2 *=4;
+  qtr1 /=2;
   std::cout << qtr1;
   std::cout << qtr2;
   std::cout << qtr5;

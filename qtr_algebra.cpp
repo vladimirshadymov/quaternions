@@ -100,3 +100,47 @@ bool Quaternion::operator !=(const Quaternion &qtr){
       and (x2_==qtr.getx2())
       and (x3_==qtr.getx3())));
 }
+
+Quaternion Quaternion::operator*(double k) {
+  double x0 = k*x0_;
+  double x1 = k*x1_;
+  double x2 = k*x2_;
+  double x3 = k*x3_;
+  Quaternion tmp(x0, x1, x2, x3);
+  return tmp;
+}
+
+Quaternion operator *(const double k, const Quaternion &qtr){
+  double x0 = k*qtr.getx0();
+  double x1 = k*qtr.getx1();
+  double x2 = k*qtr.getx2();
+  double x3 = k*qtr.getx3();
+  Quaternion tmp(x0, x1, x2, x3);
+  return tmp;
+}
+
+Quaternion Quaternion::operator/(double k) {
+  double x0 = x0_/k;
+  double x1 = x1_/k;
+  double x2 = x2_/k;
+  double x3 = x3_/k;
+  Quaternion tmp(x0, x1, x2, x3);
+  return tmp;
+}
+
+Quaternion &Quaternion::operator*=(double k) {
+  x0_ *= k;
+  x1_ *= k;
+  x2_ *= k;
+  x3_ *= k;
+  return *this;
+}
+
+Quaternion &Quaternion::operator/=(double k) {
+  x0_ /= k;
+  x1_ /= k;
+  x2_ /= k;
+  x3_ /= k;
+  return *this;
+}
+
