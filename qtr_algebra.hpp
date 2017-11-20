@@ -124,6 +124,40 @@ class Quaternion{
    */
   Quaternion &operator /=(double k);
 
+  /*!
+   * @return Norm of the quaternion ||Q||=x0^2+x1^2+x2^2+x3^2
+   */
+  double getNorm();
+
+  /*!
+   * @return Absolute value of the quaternion |Q|=sqrt(x0^2+x1^2+x2^2+x3^2)
+   */
+  double getAbs();
+
+  /*!
+   * @return Conjugated quaternion
+   * ATTENTION! The method DOES change quaternion it is applied to.
+   */
+  void conjugate();
+
+  /*!
+   * @return Inversed quaternion [conj(qtr)/||qtr||==qtr^-1]
+   * ATTENTION! The method DOES change quaternion it is applied to.
+   */
+  void inverse();
+
+  /*!
+   * @return Conjugated quaternion
+   * ATTENTION! The method DOESN'T change quaternion it is applied to.
+   */
+  Quaternion getConjugated();
+
+  /*!
+   * @return Inversed quaternion [conj(qtr)/||qtr||==qtr^-1]
+   * ATTENTION! The method DOESN'T change quaternion it is applied to.
+   */
+  Quaternion getInversed();
+
 };
 
 /*!
@@ -136,7 +170,6 @@ std::ostream &operator<<(std::ostream &stream, const Quaternion& qtr);
 
 
 /*!
- *
  * @param k number of double type
  * @param qtr : Quaternion multiplied by the number k (k*qtr; only that order in this function)
  * @return

@@ -4,23 +4,20 @@
 
 #include <iostream>
 #include "qtr_algebra.hpp"
-
+#include "math.h"
 
 int main(){
-  Quaternion qtr1;
-  Quaternion qtr2(1,5,3,4);
-  Quaternion qtr5(2,3,7,11);
+  Quaternion qtr1(0.25, sqrt(5)/4, sqrt(5)/4, sqrt(5)/4);
+  Quaternion qtr2;
+  Quaternion qtr5;
+
+  std::cout << qtr1;
+  std::cout << qtr1.getNorm();
+
+  qtr1.inverse();
+  qtr2 = qtr1.getInversed();
   std::cout << qtr1;
   std::cout << qtr2;
   std::cout << qtr5;
 
-  qtr1 = qtr2+qtr5;
-
-
-  qtr2 = qtr1*4;
-  qtr2 *=4;
-  qtr1 /=2;
-  std::cout << qtr1;
-  std::cout << qtr2;
-  std::cout << qtr5;
 }
