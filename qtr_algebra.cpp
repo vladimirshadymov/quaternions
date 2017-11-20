@@ -181,3 +181,18 @@ Quaternion Quaternion::getInversed() {
   return tmp;
 }
 
+Quaternion Quaternion::operator*(const Quaternion &qtr) {
+  double y0 = qtr.getx0();
+  double y1 = qtr.getx1();
+  double y2 = qtr.getx2();
+  double y3 = qtr.getx3();
+
+  double c0 = x0_*y0 - (x1_*y1+x2_*y2+x3_*y3);
+  double c1 = x0_*y1 + y0*x1_ + x2_*y3 - y2*x3_;
+  double c2 = x0_*y2 + y0*x2_ - x1_*y3 + y1*x3_;
+  double c3 = x0_*y3 + y0*x3_ + x1_*y2 - y1*x2_;
+
+  Quaternion tmp(c0, c1, c2, c3);
+
+  return tmp;
+}

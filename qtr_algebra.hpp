@@ -158,6 +158,19 @@ class Quaternion{
    */
   Quaternion getInversed();
 
+
+  /*!
+   * Overloaded operator "*" for quaternion mutiplication, according to the formula
+   * X*Y = x0*y0 - (x*y) + x0*y + y0*x + [x*y];
+   * Where:
+   * Quaternion X = x0+x; x0 : scalar part of the quaternion; x : vector part of the quaternion;
+   * Quaternion Y = y0+y; y0 : scalar part of the quaternion; y : vector part of the quaternion;
+   * (x*y) : scalar multiplication of vectors;
+   * [x*y] : vector multiplication of vectors;
+   */
+  Quaternion operator*(const Quaternion &qtr);
+
+
 };
 
 /*!
