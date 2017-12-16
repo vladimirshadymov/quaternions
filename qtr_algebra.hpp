@@ -10,6 +10,7 @@
 #ifndef QUATERNIONS_QTR_ALGEBRA_HPP
 #define QUATERNIONS_QTR_ALGEBRA_HPP
 #include <iostream>
+#include <vector>
 
 /*!
  * /brief Class Quaternion stands for hypercomlex object quatrenion.
@@ -58,9 +59,6 @@ class Quaternion{
    */
   double getx3()const ;
 
-  /*!
-   * Overloading of the operator "=" for quaternoin assignment
-   */
   Quaternion &operator =(const Quaternion &qtr);
 
 
@@ -170,6 +168,19 @@ class Quaternion{
    */
   Quaternion operator*(const Quaternion &qtr);
 
+  /*!
+   * Overloaded operator "*" for quaternion mutiplication, according to the formula
+   * X/Y = X*(Y^-1)
+   * @return
+   */
+  Quaternion operator/(const Quaternion &qtr);
+
+  /*!
+   * Makes associated transformation by quaternion
+   */
+  Quaternion transformate(const Quaternion &qtr);
+
+
 
 };
 
@@ -190,5 +201,18 @@ std::ostream &operator<<(std::ostream &stream, const Quaternion& qtr);
 Quaternion operator *(const double k, const Quaternion &qtr);
 
 
+/*!
+ * Overloading of the operator "=" for quaternoin assignment
+ */
+
+
+/*!
+ *
+ * @param axis vector which is mean direction of rotation
+ * @param phi angle of rotation [degrees]
+ * @param v vector to be rotated
+ * @return
+ */
+std::vector<double> rotate(const std::vector<double> &axis, const double &phi, const std::vector<double> &v);
 
 #endif //QUATERNIONS_QTR_ALGEBRA_HPP

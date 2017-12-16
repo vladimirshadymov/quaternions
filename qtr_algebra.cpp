@@ -14,9 +14,13 @@ Quaternion::Quaternion() {
 
 Quaternion::Quaternion(double x0, double x1, double x2, double x3) {
   x0_ = x0;
+
   x1_ = x1;
+
   x2_ = x2;
+
   x3_ = x3;
+
 }
 
 Quaternion::~Quaternion() {}
@@ -39,6 +43,7 @@ double Quaternion::getx3() const {
   return x3_;
 }
 
+
 Quaternion &Quaternion::operator=(const Quaternion &qtr){
   x0_ = qtr.getx0();
   x1_ = qtr.getx1();
@@ -46,6 +51,7 @@ Quaternion &Quaternion::operator=(const Quaternion &qtr){
   x3_ = qtr.getx3();
   return *this;
 }
+
 
 Quaternion Quaternion::operator +(const Quaternion &qtr) {
   double x0 = x0_ + qtr.getx0();
@@ -196,3 +202,44 @@ Quaternion Quaternion::operator*(const Quaternion &qtr) {
 
   return tmp;
 }
+
+Quaternion Quaternion::operator/(const Quaternion &qtr) {
+  double y0 = qtr.getx0();
+  double y1 = qtr.getx1();
+  double y2 = qtr.getx2();
+  double y3 = qtr.getx3();
+  Quaternion tmp(y0, y1, y2, y3);
+
+  tmp.inverse();
+  tmp = (*this)*tmp;
+  return tmp;
+}
+
+Quaternion Quaternion::transformate(const Quaternion &qtr) {
+  Quaternion tmp;
+  tmp = *(this)*qtr*(this->getConjugated());
+  return tmp;
+}
+
+
+std::vector<double> rotate(const std::vector<double> &axis, const double &phi_deg, const std::vector<double> &v) {
+
+  double len = sqrt(axis[0]*axis[0]+axis[1]*axis[1]+axis[2]*axis[2]);
+  double phi_rad = phi_deg/180*M_PI;
+  double x0 = cos(phi_rad/2);
+  double x1 = axis[0]/len*sin(phi_rad/2);
+  double x2 = axis[1]/len*sin(phi_rad/2);
+  double x3 = axis[2]/len*sin(phi_rad/2);
+
+  Quaternion qtr_rot(x0, x1, x2, x3);
+  Quaternion qtr_vec(0, v[0], v[1], v[2]);
+
+  Quaternion rotated_qtr;
+  rotated_qtr = qtr_rot*qtr_vec*qtr_rot.getConjugated();
+  std::vector<double> res_vec;
+  res_vec.push_back(rotated_qtr.getx1());
+  res_vec.push_back(rotated_qtr.getx2());
+  res_vec.push_back(rotated_qtr.getx3());
+  return res_vec;
+}
+
