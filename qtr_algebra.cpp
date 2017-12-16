@@ -14,13 +14,9 @@ Quaternion::Quaternion() {
 
 Quaternion::Quaternion(double x0, double x1, double x2, double x3) {
   x0_ = x0;
-
   x1_ = x1;
-
   x2_ = x2;
-
   x3_ = x3;
-
 }
 
 Quaternion::~Quaternion() {}
