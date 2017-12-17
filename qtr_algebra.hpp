@@ -202,11 +202,6 @@ Quaternion operator *(const double k, const Quaternion &qtr);
 
 
 /*!
- * Overloading of the operator "=" for quaternoin assignment
- */
-
-
-/*!
  *
  * @param axis vector which is mean direction of rotation
  * @param phi angle of rotation [degrees]
