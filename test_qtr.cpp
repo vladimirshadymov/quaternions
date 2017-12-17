@@ -2,30 +2,36 @@
 // Created by vladimir on 19.11.17.
 //
 
+#include <gtest/gtest.h>
 #include <iostream>
-#include "qtr_algebra.hpp"
-#include "math.h"
+#include <cmath>
+#include <sstream>
 #include <iomanip>
-#include <vector>
+#include "qtr_algebra.hpp"
 
-int main(){
-  Quaternion qtr1(0.25, sqrt(5)/4, sqrt(5)/4, sqrt(5)/4);
-  Quaternion qtr2;
-  Quaternion qtr5;
+TEST (Quaternion__Test, Creation) {
+  Quaternion qtr1;
+  ASSERT_EQ(qtr1.getx0(), 0);
+  ASSERT_EQ(qtr1.getx1(), 0);
+  ASSERT_EQ(qtr1.getx2(), 0);
+  ASSERT_EQ(qtr1.getx3(), 0);
 
-  qtr2 = qtr1.getInversed();
+  Quaternion qtr2(1, 3, 5, 17);
+  ASSERT_EQ(qtr2.getx0(), 1);
+  ASSERT_EQ(qtr2.getx1(), 3);
+  ASSERT_EQ(qtr2.getx2(), 5);
+  ASSERT_EQ(qtr2.getx3(), 17);
 
-  qtr5 = qtr1/qtr1;
+  Quaternion qtr3(4, 5, 3, -4);
+  ASSERT_EQ(qtr3.getx0(), 4);
+  ASSERT_EQ(qtr3.getx1(), 5);
+  ASSERT_EQ(qtr3.getx2(), 3);
+  ASSERT_EQ(qtr3.getx3(), -4);
+}
 
-  std::cout << qtr1;
-  std::cout << qtr2;
-  std::cout << qtr5;
+//TODO: need more tests.
 
-
-  std::vector<double> axis = {0, 1, 0};
-  std::vector<double> vec = {1, 0, 0};
-  std::vector<double> res_vec;
-  double phi = 45;
-  res_vec = rotate(axis, phi, vec);
-  std::cout << std::setprecision(3) << res_vec[0] << ' ' << res_vec[1] << ' ' << res_vec[2]<<std::endl;
+int main(int argc, char* argv[]) {
+  testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
 }
