@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/test_qtr.dir/test_qtr.cpp.o  -o test_qtr libqtr_lib.a /usr/lib/libgtest.a -lpthread 

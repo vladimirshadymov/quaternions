@@ -1,0 +1,2 @@
+/usr/bin/ar qc libquaternions.a  CMakeFiles/quaternions.dir/qtr_algebra.cpp.o
+/usr/bin/ranlib libquaternions.a

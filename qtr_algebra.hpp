@@ -61,7 +61,6 @@ class Quaternion{
 
   Quaternion &operator =(const Quaternion &qtr);
 
-
   /*!
    * Overloading of the operator "+" for quaternoin adding
    */
@@ -73,6 +72,11 @@ class Quaternion{
   Quaternion operator -(const Quaternion &qtr);
 
   /*!
+   *
+   */
+  Quaternion operator-();
+
+  /*!
    * Overloading of the operator "+=" for quaternoin adding
    */
   Quaternion &operator +=(const Quaternion &qtr);
@@ -81,12 +85,6 @@ class Quaternion{
    * Overloading of the operator "-=" for quaternoin subtraction
    */
   Quaternion &operator -=(const Quaternion &qtr);
-
-  /*!
-   * @param Overloading of the operator "==" for quaternoin comparison
-   * @return
-   */
-  bool operator ==(const Quaternion &qtr);
 
   /*!
    * @param Overloading of the operator "!=" for quaternoin comparison
@@ -183,6 +181,13 @@ class Quaternion{
 
 
 };
+
+/*!
+   * @param Overloading of the operator "==" for quaternoin comparison
+   * @return
+   */
+bool operator ==(const Quaternion &qtr1, const Quaternion &qtr2);
+
 
 /*!
  *

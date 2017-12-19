@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vladimir/CLionProjects/quaternions/qtr_algebra.hpp
+iostream
+-
+vector
+-
+
+/home/vladimir/CLionProjects/quaternions/test_qtr.cpp
+gtest/gtest.h
+-
+iostream
+-
+cmath
+-
+sstream
+-
+iomanip
+-
+qtr_algebra.hpp
+/home/vladimir/CLionProjects/quaternions/qtr_algebra.hpp
+

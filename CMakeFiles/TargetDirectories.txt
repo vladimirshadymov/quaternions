@@ -1,0 +1,4 @@
+/home/vladimir/CLionProjects/quaternions/CMakeFiles/rebuild_cache.dir
+/home/vladimir/CLionProjects/quaternions/CMakeFiles/edit_cache.dir
+/home/vladimir/CLionProjects/quaternions/CMakeFiles/test_qtr.dir
+/home/vladimir/CLionProjects/quaternions/CMakeFiles/qtr_lib.dir

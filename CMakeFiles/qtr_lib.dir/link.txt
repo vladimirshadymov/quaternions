@@ -1,0 +1,2 @@
+/usr/bin/ar qc libqtr_lib.a  CMakeFiles/qtr_lib.dir/qtr_algebra.cpp.o
+/usr/bin/ranlib libqtr_lib.a

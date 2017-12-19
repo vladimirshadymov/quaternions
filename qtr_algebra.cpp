@@ -13,10 +13,14 @@ Quaternion::Quaternion() {
 }
 
 Quaternion::Quaternion(double x0, double x1, double x2, double x3) {
-  x0_ = x0;
-  x1_ = x1;
-  x2_ = x2;
-  x3_ = x3;
+  if (abs(x0)>pow10(-10)) x0_ = x0;
+  else x0_ = 0;
+  if (abs(x1)>pow10(-10)) x1_ = x1;
+  else x1_ = 0;
+  if (abs(x2)>pow10(-10)) x2_ = x2;
+  else x2_ = x2;
+  if (abs(x3)>pow10(-10)) x3_ = x3;
+  else x3_ = 0;
 }
 
 Quaternion::~Quaternion() {}
@@ -67,6 +71,15 @@ Quaternion Quaternion::operator -(const Quaternion &qtr) {
   return tmp;
 }
 
+Quaternion Quaternion::operator-() {
+  double x0 = -x0_;
+  double x1 = -x1_;
+  double x2 = -x2_;
+  double x3 = -x3_;
+  Quaternion tmp(x0, x1, x2, x3);
+  return tmp;
+}
+
 Quaternion &Quaternion::operator +=(const Quaternion &qtr) {
   x0_ += qtr.getx0();
   x1_ += qtr.getx1();
@@ -90,11 +103,11 @@ std::ostream &operator<<(std::ostream &stream, const Quaternion& qtr){
                 <<qtr.getx3()<<")\n";
 }
 
-bool Quaternion::operator ==(const Quaternion &qtr){
-  return ((x0_==qtr.getx0())
-      and (x1_==qtr.getx1())
-      and (x2_==qtr.getx2())
-      and (x3_==qtr.getx3()));
+bool operator ==(const Quaternion &qtr1, const Quaternion &qtr2){
+  return ((qtr1.getx0())==qtr2.getx0())
+      and ((qtr1.getx1())==qtr2.getx1())
+      and ((qtr1.getx2())==qtr2.getx2())
+      and ((qtr1.getx3())==qtr2.getx3());
 }
 
 bool Quaternion::operator !=(const Quaternion &qtr){

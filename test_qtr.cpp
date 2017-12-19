@@ -29,7 +29,93 @@ TEST (Quaternion__Test, Creation) {
   ASSERT_EQ(qtr3.getx3(), -4);
 }
 
-//TODO: need more tests.
+TEST (Quaternion__Test, Equality) {
+  Quaternion qtr1;
+  Quaternion qtr2;
+  ASSERT_TRUE(qtr1==qtr2);
+  Quaternion qtr3(1,2,3,4);
+  Quaternion qtr4(1.0,2.0,3.0,4.0);
+  ASSERT_TRUE(qtr3==qtr4);
+  ASSERT_TRUE(qtr1!=qtr4);
+}
+
+TEST(Quaternion__Test, Addition) {
+  Quaternion qtr0;
+  Quaternion qtr1(1,2,3,4);
+  Quaternion qtr2(-5,16,14,31);
+  Quaternion qtr3(31, 0, 15, 5);
+  Quaternion qtr4(0, 2, 4, 7);
+  Quaternion qtr5(4, 17, 0, 6);
+  Quaternion qtr6(3, 12, 10, 0);
+
+  qtr0 = qtr1+qtr2;
+  ASSERT_EQ(qtr0.getx0(), -4);
+  ASSERT_EQ(qtr0.getx1(), 18);
+  ASSERT_EQ(qtr0.getx2(), 17);
+  ASSERT_EQ(qtr0.getx3(), 35);
+}
+
+TEST (Quaternion__Test, Subtraction) {
+  Quaternion qtr0;
+  Quaternion qtr1(1,2,3,4);
+  Quaternion qtr2(-5,16,14,31);
+  Quaternion qtr3(31, 0, 15, 5);
+  Quaternion qtr4(0, 2, 4, 7);
+  Quaternion qtr5(4, 17, 0, 6);
+  Quaternion qtr6(3, 12, 10, 0);
+
+  qtr0 = qtr1-qtr2;
+  ASSERT_EQ(qtr0.getx0(), 6);
+  ASSERT_EQ(qtr0.getx1(), -14);
+  ASSERT_EQ(qtr0.getx2(), -11);
+  ASSERT_EQ(qtr0.getx3(), -27);
+}
+
+TEST(Quaternion__Test, Assignment) {
+  Quaternion qtr0;
+  Quaternion qtr1(1,2,3,4);
+  Quaternion qtr2(-5,16,14,31);
+  Quaternion qtr3(31, 0, 15, 5);
+  Quaternion qtr4(0, 2, 4, 7);
+  Quaternion qtr5(4, sqrt(17)/2, 0, cos(6));
+  Quaternion qtr6(3, 12, tan(10), 0);
+
+  qtr0 = qtr1;
+  ASSERT_EQ(qtr0, qtr1);
+
+  qtr0 = qtr2;
+  ASSERT_EQ(qtr0, qtr2);
+
+  qtr0 = qtr3;
+  ASSERT_EQ(qtr0, qtr3);
+
+  qtr0 = qtr4;
+  ASSERT_EQ(qtr0, qtr4);
+
+  qtr0 = qtr5;
+  ASSERT_EQ(qtr0, qtr5);
+
+  qtr0 = qtr6;
+  ASSERT_EQ(qtr0, qtr6);
+}
+
+TEST (Quaternion__Test, Multiplication){
+  Quaternion qtr0;
+  Quaternion qtr1(1,2,3,4);
+  Quaternion qtr2(-5,16,14,31);
+  Quaternion qtr3(31, 0, 15, 5);
+  Quaternion qtr4(0, 2, 4, 7);
+  Quaternion qtr5(4, 17, 0, 6);
+  Quaternion qtr6(3, 12, 10, 0);
+
+  qtr0 = qtr1*qtr2;
+  ASSERT_EQ(qtr0.getx0(), -203);
+  ASSERT_EQ(qtr0.getx1(), 43);
+  ASSERT_EQ(qtr0.getx2(), 1);
+  ASSERT_EQ(qtr0.getx3(), -9);
+}
+
+
 
 int main(int argc, char* argv[]) {
   testing::InitGoogleTest(&argc, argv);

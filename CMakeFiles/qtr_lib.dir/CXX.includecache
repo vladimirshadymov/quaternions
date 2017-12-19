@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vladimir/CLionProjects/quaternions/qtr_algebra.cpp
+qtr_algebra.hpp
+/home/vladimir/CLionProjects/quaternions/qtr_algebra.hpp
+math.h
+/home/vladimir/CLionProjects/quaternions/math.h
+
+/home/vladimir/CLionProjects/quaternions/qtr_algebra.hpp
+iostream
+-
+vector
+-
+
