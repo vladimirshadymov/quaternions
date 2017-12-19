@@ -1,13 +1,4 @@
 /home/vladimir/Workspace/clion-2017.2.2/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE= -G "CodeBlocks - Unix Makefiles" /home/vladimir/CLionProjects/quaternions
-CMake Error at CMakeLists.txt:14 (add_executable):
-  add_executable called with incorrect number of arguments
-
-
-CMake Error at CMakeLists.txt:16 (target_link_libraries):
-  Cannot specify link libraries for target "test_qtr" which is not built by
-  this project.
-
-
--- Configuring incomplete, errors occurred!
-See also "/home/vladimir/CLionProjects/quaternions/CMakeFiles/CMakeOutput.log".
-See also "/home/vladimir/CLionProjects/quaternions/CMakeFiles/CMakeError.log".
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/vladimir/CLionProjects/quaternions

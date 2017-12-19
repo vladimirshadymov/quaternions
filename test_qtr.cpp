@@ -115,6 +115,17 @@ TEST (Quaternion__Test, Multiplication){
   ASSERT_EQ(qtr0.getx3(), -9);
 }
 
+TEST (Quaternion__Test, Rotation) {
+  std::vector<double> axis_ox={1,0,0};
+  std::vector<double> axis_oy={0,1,0};
+  std::vector<double> axis_oz={0,0,1};
+
+  std::vector<double> res_vec;
+  std::vector<double> expected_vec;
+  res_vec = rotate(axis_ox, 90, axis_oy);
+  expected_vec = {0, 0, 1};
+  ASSERT_EQ(res_vec, expected_vec);
+}
 
 
 int main(int argc, char* argv[]) {

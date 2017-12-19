@@ -13,14 +13,10 @@ Quaternion::Quaternion() {
 }
 
 Quaternion::Quaternion(double x0, double x1, double x2, double x3) {
-  if (abs(x0)>pow10(-10)) x0_ = x0;
-  else x0_ = 0;
-  if (abs(x1)>pow10(-10)) x1_ = x1;
-  else x1_ = 0;
-  if (abs(x2)>pow10(-10)) x2_ = x2;
-  else x2_ = x2;
-  if (abs(x3)>pow10(-10)) x3_ = x3;
-  else x3_ = 0;
+  x0_ = round(x0*pow10(10))/pow10(10);
+  x1_ = round(x1*pow10(10))/pow10(10);
+  x2_ = round(x2*pow10(10))/pow10(10);
+  x3_ = round(x3*pow10(10))/pow10(10);
 }
 
 Quaternion::~Quaternion() {}
